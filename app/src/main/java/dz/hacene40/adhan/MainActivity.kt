@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.graphics.Color
 import android.view.Gravity
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.batoulapps.adhan2.CalculationMethod
@@ -16,7 +17,6 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-// Initial version of the Arabic prayer-times application.
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +27,18 @@ class MainActivity : Activity() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_HORIZONTAL
-            setPadding(24, 32, 24, 24)
+            setPadding(24, 24, 24, 24)
             setBackgroundColor(Color.rgb(247, 249, 245))
         }
+        val fatherPhoto = ImageView(this).apply {
+            setImageResource(R.drawable.father)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            contentDescription = "صورة الوالد رحمه الله"
+        }
+        root.addView(fatherPhoto, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT, (210 * resources.displayMetrics.density).toInt()
+        ))
+
         fun line(value: String, size: Float, color: Int, bold: Boolean = false) {
             root.addView(TextView(this).apply {
                 text = value
@@ -45,25 +54,11 @@ class MainActivity : Activity() {
         line("ولاية سكيكدة - الجزائر", 19f, Color.DKGRAY, true)
 
         val calendar = Calendar.getInstance()
-        val date = DateComponents(
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH) + 1,
-            calendar.get(Calendar.DAY_OF_MONTH)
-        )
+        val date = DateComponents(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH))
         val coordinates = Coordinates(36.876, 6.909)
-        val prayerTimes = PrayerTimes(
-            coordinates,
-            date,
-            CalculationMethod.MUSLIM_WORLD_LEAGUE.parameters
-        )
-        val timeFormat = SimpleDateFormat("HH:mm", Locale("ar", "DZ")).apply {
-            timeZone = TimeZone.getDefault()
-        }
-        line(
-            SimpleDateFormat("EEEE، d MMMM yyyy", Locale("ar", "DZ")).format(Date()),
-            17f,
-            Color.GRAY
-        )
+        val prayerTimes = PrayerTimes(coordinates, date, CalculationMethod.MUSLIM_WORLD_LEAGUE.parameters)
+        val timeFormat = SimpleDateFormat("HH:mm", Locale("ar", "DZ")).apply { timeZone = TimeZone.getDefault() }
+        line(SimpleDateFormat("EEEE، d MMMM yyyy", Locale("ar", "DZ")).format(Date()), 17f, Color.GRAY)
         line("الفجر: " + timeFormat.format(Date(prayerTimes.fajr.toEpochMilliseconds())), 22f, Color.BLACK, true)
         line("الشروق: " + timeFormat.format(Date(prayerTimes.sunrise.toEpochMilliseconds())), 20f, Color.DKGRAY)
         line("الظهر: " + timeFormat.format(Date(prayerTimes.dhuhr.toEpochMilliseconds())), 22f, Color.BLACK, true)
