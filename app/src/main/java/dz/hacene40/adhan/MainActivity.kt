@@ -16,7 +16,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class MainActivity : Activity() {
+// Initial version of the Arabic prayer-times application.\nclass MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         renderPrayerTimes()
