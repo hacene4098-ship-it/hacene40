@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأذان الجزائري</title>
+<style>
+body {
+  background: #064e3b;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 25px;
+}
+h1 {font-size: 30px;}
+.card {
+  background: #ffffff20;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+button {
+  background: #d4af37;
+  color: #123;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+<h1>🕌 الأذان الجزائري</h1>
+<div class="card">
+<h2>مرحبا بكم</h2>
+<p>مواقيت الصلاة حسب موقعك في الجزائر</p>
+</div>
+<div class="card">
+<h3>مواقيت الصلاة</h3>
+<p>الفجر - الظهر - العصر - المغرب - العشاء</p>
+<p>سيتم ربط المواقيت لاحقاً</p>
+</div>
+<button onclick="alert('مرحبا بك في تطبيق الأذان')">
+تجربة التطبيق
+</button>
+</body>
+</html>
