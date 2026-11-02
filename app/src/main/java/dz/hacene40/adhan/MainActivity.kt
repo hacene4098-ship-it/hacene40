@@ -6,10 +6,10 @@ import android.graphics.Color
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.batoulapps.adhan.CalculationMethod
-import com.batoulapps.adhan.Coordinates
-import com.batoulapps.adhan.DateComponents
-import com.batoulapps.adhan.PrayerTimes
+import com.batoulapps.adhan2.CalculationMethod
+import com.batoulapps.adhan2.Coordinates
+import com.batoulapps.adhan2.DateComponents
+import com.batoulapps.adhan2.PrayerTimes
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
