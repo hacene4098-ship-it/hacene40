@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.batoulapps.adhan2.CalculationMethod
 import com.batoulapps.adhan2.Coordinates
-import com.batoulapps.adhan2.DateComponents
+import com.batoulapps.adhan2.data.DateComponents
 import com.batoulapps.adhan2.PrayerTimes
 import java.text.SimpleDateFormat
 import java.util.Calendar
